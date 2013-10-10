@@ -1,7 +1,124 @@
-/*
-  Welcome to Compass.
-  In this file you should write your main styles. (or centralize your imports)
-  Import this file using the following HTML or equivalent:
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
 @import compass/reset
+@import compass/css3/transition
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,700,100italic,700italic)
+
+@import variables.sass
+
+body
+	font-family: $copy
+	background-color: $color
+	font-size: $basefont
+	line-height: $baseline
+	max-width: 612px
+	width: 95%
+	margin: 0 auto
+	
+a
+	position: relative
+	color: $contrast
+	+transition(all .2s)
+	&:hover, &:active, &:focus
+		text-decoration: none
+		top: -3px
+		padding-bottom: 3px
+
+ul, ol
+	margin: $baseline 0
+	padding: 0 $baseline
+	list-style: disc
+	ul, ol
+		list-style: circle
+		margin: 0
+		ul
+			list-style: square
+
+ol
+	list-style: decimal
+	ol
+		list-style: upper-roman
+		ol
+			list-style: lower-alpha
+
+p
+	margin: $baseline 0
+
+label, input
+	display: block
+
+small
+	font-size: $basefont*0.8
+
+strong
+	font-weight: bold
+
+em
+	font-style: italic
+
+h1, h2, h3, h4, h5, h6
+	font-weight: bold
+h1, h2, h3
+	line-height: $baseline*2
+h1
+	font-size: $basefont*1.5
+h2
+	font-size: $basefont*1.3
+h3
+	font-size: $basefont*1.15
+h6
+	font-size: $basefont*0.8
+
+
+
+#site-navigation
+	text-transform: uppercase
+	cursor: default
+	margin: $baseline 0 0
+	a
+		text-decoration: none
+		font-weight: normal
+		&:hover, &:focus, &:active
+			top: 0
+			text-decoration: underline
+	ul
+		list-style: none !important
+		text-align: center
+	li
+		display: inline
+		padding: 0 .7rem
+		&.current-menu-item, &.current_page_item
+			a
+				font-weight: bold
+
+.entry-title
+	text-transform: uppercase
+	font-size: $basefont*1.5
+	text-align: center
+	margin: $baseline 0
+	a
+		text-decoration: none
+		&:hover, &:focus, &:active
+			top: 0
+
+.entry-meta
+	opacity: 0
+	@include transition(opacity 1s)
+	font-style: italic
+	margin-top: $baseline
+	a
+		text-decoration: none
+
+article
+	margin: $baseline*3 0 0
+	&:hover, &.active
+		.entry-meta
+			opacity: 1
+	&:first-child
+		margin-top: $baseline
+
+.comments-area
+	margin-top: $baseline
+
+
+footer
+	margin: $baseline*2 0 $baseline/2
+	font-size: $basefont*.8
